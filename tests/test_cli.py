@@ -32,17 +32,13 @@ class TestMain:
         )
         assert out == ""
 
-    def test_main_help(
-        self,
-    ):
+    def test_main_help(self):
         with pytest.raises(SystemExit) as excinfo:
             main(["--help"])
 
         assert excinfo.value.code == 0
 
-    def test_main_help_subprocess(
-        self,
-    ):
+    def test_main_help_subprocess(self):
         proc = subprocess.run(
             [sys.executable, "-m", "time_machine", "--help"],
             check=True,
